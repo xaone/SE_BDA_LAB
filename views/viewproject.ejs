@@ -1,0 +1,43 @@
+<%- include('partials/iheader.ejs') %>
+<style>
+    body,html{
+      scroll-behavior: smooth;
+      width: 100%;
+      height:100%; 
+    }  
+    table{
+        text-align: center;
+        font-family: 'Poppins';
+    }
+    th{
+        color:#3acbc4;
+    }
+    tr{
+        color:black;
+    }  
+</style>
+<h1 style="text-align:center">Sponsored Projects</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Granter</th>
+                <th>Duration</th>
+                <th>Amount</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%list.forEach((article)=>{%>
+            <tr>
+                <td><%= article.title %></td>
+                <td><%= article.granter %></td>
+                <td><%= article.duration %></td>
+                <td><%= article.amount %></td>
+                <td><%= article.status %></td>
+            </tr>
+            <%})%>
+        </tbody>
+    </table>
+    
+<%- include('partials/ifooter.ejs') %>

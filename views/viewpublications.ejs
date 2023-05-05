@@ -1,0 +1,42 @@
+<%- include('partials/iheader.ejs') %>
+<style>
+    body,html{
+      scroll-behavior: smooth;
+      width: 100%;
+      height:100%; 
+    }  
+    table{
+        text-align: center;
+        font-family: 'Poppins';
+    }
+    th{
+        color:#3acbc4;
+    }
+    tr{
+        color:black;
+    }  
+</style>
+<h1 style="text-align:center">Publications</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Authors</th>
+                <th>Publication in MLA format</th>
+                <th>Title</th>
+                <th>PDF URL/ LINK</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <%list.forEach((article)=>{%>
+            <tr>
+                <td><%= article.author1 %>,<%= article.author2 %>,<%= article.author3 %></td>
+                <td><%= article.mla %></td>
+                <td><%= article.title %></td>
+                <td><a href="<%= article.pdf %>">Click</a></td>
+            </tr>
+            <%})%>
+        </tbody>
+    </table>
+    
+<%- include('partials/ifooter.ejs') %>
