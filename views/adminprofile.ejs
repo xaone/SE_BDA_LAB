@@ -159,6 +159,27 @@
             <%})%>
         </tbody>
     </table>
+</br>
+    <h1 style="color:black;text-align: center;">Feedbacks</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Feedback</th>
+                <th>Email id</th>
+            </tr>
+        </thead>
+        <tbody>
+            <%list3.forEach((article3)=>{%>
+            <tr>
+                <td><%= article3.review %></td>
+                <td><%= article3.email %></td>
+                <td>
+                    <a href="/admin/feeddelete/<%= article3._id %>" onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+                </td>
+            </tr>
+            <%})%>
+        </tbody>
+    </table>
 </div>
 </div>
 
