@@ -28,16 +28,28 @@ a:link,a:visited,a:active,a:hover {
 
     }
 }
-.login{
+/* .login{
         width: 382px;
         overflow: hidden;
         /* margin: auto; */
         /* margin: 10 80px ; */
-        margin-left:70px;
+       /* margin-left:70px;
         padding: 20px;
-        text-align: left;
+        text-align: left;*/
         /* background: #23463f; */
         /* border-radius: 15px ; */
+
+/*} */
+#login{
+    width: 382px;
+    overflow: hidden;
+    /* margin: auto; */
+    /* margin: 10 80px ; */
+    margin-left:70px;
+    padding: 20px;
+    text-align: left;
+    /* background: #23463f; */
+    /* border-radius: 15px ; */
 
 }
 h2{
@@ -52,41 +64,56 @@ label{
     color: #08ffd1;
     font-size: 17px;
 }
-#email{
+#login #username{
     width: 300px;
-    height: 30px;
+    height: 40px;
     border: none;
-    border-radius: 17px;
+    border-radius: 20px;
+    margin-top: 10px;
     padding-left: 8px;
 }
-#Pass{
+#login #name{
     width: 300px;
-    height: 30px;
+    height: 40px;
     border: none;
-    border-radius: 17px;
+    border-radius: 20px;
+    padding-left: 8px;
+}
+#login #password{
+    width: 300px;
+    height: 40px;
+    border: none;
+    margin-top: 10px;
+
+    border-radius: 20px;
     padding-left: 8px;
 
 }
-#log{
-    width: 150px;
-    height: 30px;
+#login #position{
+    width: 300px;
+    height: 40px;
     border: none;
-    border-radius: 17px;
+    margin-top: 10px;
+
+    border-radius: 20px;
     padding-left: 7px;
     color: blue;
 
 
 }
-#log1{
-    width: 150px;
-    height: 30px;
+#login #subjects{
+    width: 300px;
+    height: 40px;
     border: none;
-    border-radius: 17px;
+    border-radius: 20px;
+    margin-top: 10px;
     padding-left: 7px;
+    /* padding-right: 15px; */
     color: blue;
 
 
 }
+
 span{
     color: white;
     font-size: 30px;

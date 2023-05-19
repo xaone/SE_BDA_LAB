@@ -20,27 +20,55 @@
             width: 100%;
             color:black;
         }
+        .bg-image {
+  /* The image used */
+  background-image: url("/img/poo8.jpg");
+  
+  
+}
     </style>
 </head>
 <center>
-<body style="background-color: #0F172B;">
-    <h2 style="color:white; text-align: center;margin-right:40px;">Edit Profile</h2>
+<body class="bg-image" style="background-color: #0F172B;">
+    <h2 style="color:white; text-align: center;margin-right:100px;margin-top: 80px;"> <b style="font-weight: 600;font-size: 50px; ">Edit Profile</b></h2>
     <br>
     <div class="login">
         <form id="publ" method="POST" action="/users/saveprofile" style="margin-right:50px;">
-            <label><b>Name</b></label>
+            <label ><b style="font-weight: 600; font-size: 25px;" >Name</b></label>
             <br>
-            <input type="text" name="name" value="<%= article[0].name %>">
+            <input type="text" name="name" id="username" value="<%= article[0].name %>" style="width: 500px;
+            height: 40px;
+            border: none;
+            margin-top: 10px;
+        
+            border-radius: 20px;
+            padding-left: 7px;
+            color:black;">
     <br><br>
-            <label><b>Position</b></label>
+            <label><b style="font-weight: 600; font-size: 25px;" >Position</b></label>
             <br>
-            <input type="text" name="position" value="<%= article[0].position %>">
+            <input type="text" name="position" id="position" value="<%= article[0].position %>" style="width: 500px;
+            height: 40px;
+            border: none;
+            margin-top: 10px;
+        
+            border-radius: 20px;
+            padding-left: 7px;
+            color:black">
     <br><br>
-            <label><b>Subjects</b></label>
+            <label><b style="font-weight: 600; font-size: 25px;" >Subjects</b></label>
             <br>
-            <input type="text" name="subjects" value="<%= article[0].subjects %>">
+            <input type="text" name="subjects" id="subjects"  value="<%= article[0].subjects %>" style="width: 500px;
+            height: 40px;
+            border: none;
+            margin-top: 10px;
+        
+            border-radius: 20px;
+            padding-left: 7px;
+            color:black">
     <br><br>
-    <center><button type="submit" style="border-radius: 4px;background-color: aqua; color:black;border:none;" >Edit Profile</button></center>
+    <center><button type="submit" style="border-radius: 4px;background-color: aqua; color:black;border:none;border:2px solid white;margin-top: 20px; padding-left: 25px;padding-right: 25px;padding-top: 10px ;padding-bottom: 10px" >
+        <b style="font-weight: 500; font-size: 20px;" >Edit Profile</b></button></center>
     <input type="hidden" name="pid" value="<%= article[0]._id %>">
 </form>
 </div>
