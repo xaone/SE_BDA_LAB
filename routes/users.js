@@ -46,7 +46,63 @@ router.post('/login',async(req,res)=>{
     
   }
   else{
-    res.render('login',{loggedIn:false,error:'Invalid Login'});
+    res.render('memlogin',{loggedIn:false,error:'Invalid Login'});
+  }
+});
+
+router.get('/edit/:id', async(req, res) => {
+  let sesh = req.session;
+
+  if (!sesh.loggedIn) {
+      res.render('memlogin', {loggedIn:false, error:'Invalid Request'});
+  } else {
+      let id = req.params.id;
+      let err = '';
+      let qry = {_id:id};
+
+      let itemResult = await members.find(qry).then( (itemData) => {
+          if(itemData == null){
+              err = 'Invalid ID';
+          }
+          res.render('editmember', {article:itemData, loggedIn:sesh.loggedIn, error:err});
+      });
+  }
+});
+
+router.post('/saveprofile', async(req, res) => {
+  let sesh = req.session;
+
+  if (!sesh.loggedIn) {
+      res.redirect('/login');
+  } else {
+      
+      let name= req.body.name;
+      let position= req.body.position;
+      let subjects=req.body.subjects;
+      let pid=req.body.pid;
+      let qry = {_id:pid};
+      let saveData = {
+          $set: {
+              name:name,
+              position:position,
+              subjects:subjects
+          }
+      }
+      
+      let updateResult = await members.updateOne(qry, saveData);
+      members.findOne(qry).then((docs)=>{
+        publs.find(		
+          {
+            "$or":[
+              {autid1:{$regex:docs.username}},
+              {autid2:{$regex:docs.username}},
+              {autid3:{$regex:docs.username}}
+            ]
+          }).then((data)=>{
+            res.render("memprofile",{m:docs,list:data,loggedIn:sesh.loggedIn});
+        });	
+      });
+      
   }
 });
 

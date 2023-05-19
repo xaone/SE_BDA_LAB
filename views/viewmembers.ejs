@@ -24,8 +24,7 @@
                 <th>Name</th>
                 <th>Position</th>
                 <th>Enrollment Number</th>
-                <th>Subjects</th>
-                <th></th>
+                <th>Visit my profile page</th>
             </tr>
         </thead>
         <tbody>
@@ -34,7 +33,7 @@
                 <td><%= article.name %></td>
                 <td><%= article.position %></td>
                 <td><%= article.enroll %></td>
-                <td><%= article.subjects %></td>
+                <td><a href="/profile/<%= article._id %>">Click</a></td>
             </tr>
             <%})%>
         </tbody>

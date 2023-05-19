@@ -3,6 +3,7 @@ var router = express.Router();
 var admin= require('../models/admins');
 var publs =require('../models/publications');
 var project = require('../models/projects');
+var feedback = require('../models/feedback');
 var bcrypt = require('bcrypt');
 var bodyParser= require('body-parser');
 
@@ -29,8 +30,11 @@ router.post('/login',async(req,res)=>{
     if(sesh.loggedIn){
         publs.find({}).then((docs)=>{
             project.find({}).then((data)=>{
-                res.render("adminprofile",{loggedIn:sesh.loggedIn,list:docs,list2:data});
-            })
+                feedback.find({}).then((feed)=>{
+                    res.render("adminprofile",{loggedIn:sesh.loggedIn,list:docs,list2:data,list3:feed});
+                });
+                             
+            });
         });
     }
     else{
@@ -66,8 +70,11 @@ router.post('/addpublnow',async(req,res)=>{
     let savepubl= await newpubl.save();
     publs.find({}).then((docs)=>{
         project.find({}).then((data)=>{
-            res.render("adminprofile",{loggedIn:sesh.loggedIn,list:docs,list2:data});
-        })
+            feedback.find({}).then((feed)=>{
+                res.render("adminprofile",{loggedIn:sesh.loggedIn,list:docs,list2:data,list3:feed});
+            });
+                         
+        });
     });
     }
     else{
@@ -99,8 +106,11 @@ router.post('/addprojnow',async(req,res)=>{
     let saveproj= await newproj.save();
     publs.find({}).then((docs)=>{
         project.find({}).then((data)=>{
-            res.render("adminprofile",{loggedIn:sesh.loggedIn,list:docs,list2:data});
-        })
+            feedback.find({}).then((feed)=>{
+                res.render("adminprofile",{loggedIn:sesh.loggedIn,list:docs,list2:data,list3:feed});
+            });
+                         
+        });
     });
     }
     else{
@@ -119,8 +129,11 @@ router.get('/projdelete/:id', async(req, res) => {
         let deleteResult = await project.deleteOne(qry);
         publs.find({}).then((docs)=>{
             project.find({}).then((data)=>{
-                res.render("adminprofile",{loggedIn:sesh.loggedIn,list:docs,list2:data});
-            })
+                feedback.find({}).then((feed)=>{
+                    res.render("adminprofile",{loggedIn:sesh.loggedIn,list:docs,list2:data,list3:feed});
+                });
+                             
+            });
         });
     }
 });
@@ -136,8 +149,11 @@ router.get('/publdelete/:id', async(req, res) => {
         let deleteResult = await publs.deleteOne(qry);
         publs.find({}).then((docs)=>{
             project.find({}).then((data)=>{
-                res.render("adminprofile",{loggedIn:sesh.loggedIn,list:docs,list2:data});
-            })
+                feedback.find({}).then((feed)=>{
+                    res.render("adminprofile",{loggedIn:sesh.loggedIn,list:docs,list2:data,list3:feed});
+                });
+                             
+            });
         });
     }
 });
@@ -196,10 +212,13 @@ router.post('/savepubl', async(req, res) => {
 
         let updateResult = await publs.updateOne(qry, saveData);
         publs.find({}).then((docs)=>{
-         project.find({}).then((data)=>{
-            res.render("adminprofile",{loggedIn:sesh.loggedIn,list:docs,list2:data});
-        })
-    });
+            project.find({}).then((data)=>{
+                feedback.find({}).then((feed)=>{
+                    res.render("adminprofile",{loggedIn:sesh.loggedIn,list:docs,list2:data,list3:feed});
+                });
+                             
+            });
+        });
         
     }
 });
@@ -249,11 +268,34 @@ router.post('/saveproj', async(req, res) => {
         
         let updateResult = await project.updateOne(qry, saveData);
         publs.find({}).then((docs)=>{
-         project.find({}).then((data)=>{
-            res.render("adminprofile",{loggedIn:sesh.loggedIn,list:docs,list2:data});
-        })
-    });
+            project.find({}).then((data)=>{
+                feedback.find({}).then((feed)=>{
+                    res.render("adminprofile",{loggedIn:sesh.loggedIn,list:docs,list2:data,list3:feed});
+                });
+                             
+            });
+        });
         
+    }
+});
+
+router.get('/feeddelete/:id', async(req, res) => {
+    let sesh = req.session;
+
+    if (!sesh.loggedIn) {
+        res.redirect('/login');
+    } else {
+        let feedId = req.params.id;
+        let qry = {_id:feedId};
+        let deleteResult = await feedback.deleteOne(qry);
+        publs.find({}).then((docs)=>{
+            project.find({}).then((data)=>{
+                feedback.find({}).then((feed)=>{
+                    res.render("adminprofile",{loggedIn:sesh.loggedIn,list:docs,list2:data,list3:feed});
+                });
+                             
+            });
+        });
     }
 });
 

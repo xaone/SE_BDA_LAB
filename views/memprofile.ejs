@@ -48,16 +48,12 @@
     tr{
         color:black;
         font-family: century gothic;
-
+        border-bottom:1px solid black;
     }
-    tr:nth-child(1){
+    th{
         color:#2fb5ae;
         font-family: century gothic;
 
-    }
-    tr:nth-child(2n){
-        color: black;
-        font-family: century gothic;
     }
     a:link {
         color: #2fb5ae;
@@ -71,6 +67,7 @@
 } */
     
 </style>
+
 <body>
     <section>
        <div class="container-fluid bg-dark px-0" style="width:100%;margin:0 px;">
@@ -90,12 +87,13 @@
     <div class="profile">
         <img src="/img/userimage.png" alt="" width="100" height="100">
     </div>
-
     <div class="sidenav-url">
         <div class="url">
             <a href="/logout">Logout</a>
+            <a href="/users/edit/<%= m._id %>">Edit Profile</a>
             <hr align="center">
         </div>
+        
     </div>
 </div>
 <!-- End -->
