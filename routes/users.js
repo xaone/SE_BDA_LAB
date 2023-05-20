@@ -114,7 +114,8 @@ router.post('/register', async(req, res)=> {
 	let	position= req.body.position;
 	let	subjects= req.body.subjects;
   let qry={username:username};
-  if(username!=''&& userpwd!=''){
+  const reg= new RegExp("mit[0-9]{7}");
+  if(username!=''&& userpwd!=''&& username.match(reg)){
   let useresult= await members.findOne(qry).then(async(docs)=>{
     if(!docs){
       let saltRounds=10;
@@ -129,7 +130,7 @@ router.post('/register', async(req, res)=> {
   });
     res.render('memlogin',{loggedIn:false, error:'Please login with your new account'});
   }else{
-    res.render('memregister',{loggedIn:false, error:'Both fields are required'});
+    res.render('memregister',{loggedIn:false, error:'Invalid Registration'});
   }
 });
 

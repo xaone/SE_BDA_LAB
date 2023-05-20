@@ -73,18 +73,14 @@
     <table  id="table2">
         <thead>
           <tr>
-                <th>Authors</th>
                 <th>Publication in MLA format</th>
-                <th>Title</th>
                 <th>PDF URL/ LINK</th>        
           </tr>
         </thead>
         <tbody>
           <%list.forEach((article)=>{%>
             <tr>
-                <td><%= article.author1 %>,<%= article.author2 %>,<%= article.author3 %></td>
                 <td><%= article.mla %></td>
-                <td><%= article.title %></td>
                 <td><a href="<%= article.pdf %>">PDF</a></td> 
             </tr>   
             <%})%>
