@@ -20,35 +20,42 @@
             width: 100%;
             color:black;
         }
+        
+        .bg-image {
+  /* The image used */
+  background-image: url("/img/poo8.jpg");
+  
+  
+}
     </style>
 </head>
 <center>
-<body style="background-color: #0F172B;">
+<body class="bg-image">
     <h2 style="color:white; text-align: center;margin-right:40px;">Edit Project</h2>
     <br>
     <div class="login">
-        <form id="publ" method="POST" action="/admin/saveproj" style="margin-right:50px;">
+        <form id="login" method="POST" action="/admin/saveproj" style="margin-right:50px;">
             <label><b>Project Title</b></label>
             <br>
-            <input type="text" name="title" value="<%= article[0].title %>">
+            <input type="text" name="title" id="username" value="<%= article[0].title %>">
     <br><br>
             <label><b>Granter </b></label>
             <br>
-            <input type="text" name="granter" value="<%= article[0].granter %>">
+            <input type="text" name="granter" id="username" value="<%= article[0].granter %>">
     <br><br>
             <label><b>Duration</b></label>
             <br>
-            <input type="text" name="duration" value="<%= article[0].duration %>">
+            <input type="text" name="duration" id="username" value="<%= article[0].duration %>">
     <br><br>
             <label><b>Amount</b></label>
             <br>
-            <input type="text" name="amount" value="<%= article[0].amount %>">
+            <input type="text" name="amount" id="username" value="<%= article[0].amount %>">
     <br><br>
             <label><b>Status</b></label>
             <br>
-            <input type="text" name="status" value="<%= article[0].status %>">
+            <input type="text" name="status" id="username" value="<%= article[0].status %>">
     <br><br>
-    <center><button type="submit" style="border-radius: 4px;background-color: aqua; color:black;border:none;" >Edit Project</button></center>
+    <center><button type="submit" style="border-radius: 4px;background-color: aqua; color:black;border:2px solid white;;margin-top: 20px; padding-left: 25px;padding-right: 25px;padding-top: 10px ;padding-bottom: 10px" ><b style="font-weight: 500; font-size: 20px;" >Edit Project</b></button></center>
     <input type="hidden" name="pid" value="<%= article[0]._id %>">
 </form>
 </div>
