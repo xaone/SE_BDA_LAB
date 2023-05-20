@@ -20,56 +20,62 @@
             width: 100%;
             color:black;
         }
+        .bg-image {
+  /* The image used */
+  background-image: url("/img/poo8.jpg");
+  
+  
+}
     </style>
 </head>
 <% if (error != '') { %>
     <%= error %>
 <% } else { %>
 <center>
-<body style="background-color: #0F172B;">
+<body class="bg-image">
     <h2 style="color:white; text-align: center;margin-right:40px;">Edit Publication</h2>
     <br>
     <div class="login">
-        <form id="publ" method="POST" action="/admin/savepubl" style="margin-right:50px;">
+        <form id="login" method="POST" action="/admin/savepubl" style="margin-right:50px;">
             <center>
             <label><b>Author 1 ID</b></label>
             <br>
-            <input type="text" name="autid1" value="<%= article[0].autid1 %>">
+            <input type="text" name="autid1" id="username" value="<%= article[0].autid1 %>">
     <br><br>
             <label><b>Author 2 ID</b></label>
             <br>
-            <input type="text" name="autid2" value="<%= article[0].autid2 %>">
+            <input type="text" name="autid2" id="username" value="<%= article[0].autid2 %>">
     <br><br>
             <label><b>Author 3 ID</b></label>
             <br>
-            <input type="text" name="autid3" value="<%= article[0].autid3 %>">
+            <input type="text" name="autid3" id="username" value="<%= article[0].autid3 %>">
     <br><br>
             <label><b>Author 1 Name</b></label>
             <br>
-            <input type="text" name="author1" value="<%= article[0].author1 %>">
+            <input type="text" name="author1" id="username" value="<%= article[0].author1 %>">
     <br><br>
             <label><b>Author 2 Name</b></label>
             <br>
-            <input type="text" name="author2" value="<%= article[0].author2 %>">
+            <input type="text" name="author2" id="username" value="<%= article[0].author2 %>">
     <br><br>
             <label><b>Author 3 Name</b></label>
             <br>
-            <input type="text" name="author3" value="<%= article[0].author3 %>">
+            <input type="text" name="author3" id="username" value="<%= article[0].author3 %>">
     <br><br>
             <label><b>Publication in MLA Format</b></label>
             <br>
-            <input type="text" name="mla" value="<%= article[0].mla %>">
+            <input type="text" name="mla" id="username" value="<%= article[0].mla %>">
     <br><br>
             <label><b>Publication Title</b></label>
             <br>
-            <input type="text" name="title" value="<%= article[0].title %>">
+            <input type="text" name="title" id="username" value="<%= article[0].title %>">
     <br><br>
             <label><b>PDF URL/ LINK</b></label>
             <br>
-            <input type="text" name="pdf" value="<%= article[0].pdf %>">
+            <input type="text" name="pdf" id="username" value="<%= article[0].pdf %>">
             </center>
     <br><br>
-    <center><button type="submit" style="border-radius: 4px;background-color: aqua; color:black;border:none;" >Edit Publication</button></center>
+    <center><button type="submit" style="border-radius: 4px;background-color: aqua; color:black;border:2px solid white;;margin-top: 20px; padding-left: 25px;padding-right: 25px;padding-top: 10px ;padding-bottom: 10px" ><b style="font-weight: 500; font-size: 20px;" >Edit Publication</b></button></center>
     <input type="hidden" name="pid" value="<%= article[0]._id %>">
 </form>
 </div>

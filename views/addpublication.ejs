@@ -20,54 +20,59 @@
             width: 100%;
         }
        
-        
+        .bg-image {
+  /* The image used */
+  background-image: url("/img/poo8.jpg");
+  
+  
+}
     </style>
 </head>
 <center>
-<body style="background-color: #0F172B;">
-    <h2 style="color:white; text-align: center;margin-right:40px;">Enter New Publication</h2>
+<body class="bg-image">
+    <h2 style="color:white; text-align: center;margin-right:30px;">Enter New Publication</h2>
     <br>
     <div class="login">
-        <form id="publ" method="POST" action="/admin/addpublnow" style="margin-right:50px;">
+        <form id="login" method="POST" action="/admin/addpublnow" style="margin-right:50px;">
             <center>
             <label><b>Author 1 ID</b></label>
             <br>
-            <input type="text" name="autid1" placeholder="Author ID">
+            <input type="text" name="autid1" id="username" placeholder="Author ID">
     <br><br>
             <label><b>Author 2 ID</b></label>
             <br>
-            <input type="text" name="autid2" placeholder="Author ID">
+            <input type="text" name="autid2" id="username" placeholder="Author ID">
     <br><br>
             <label><b>Author 3 ID</b></label>
             <br>
-            <input type="text" name="autid3" placeholder="Author ID">
+            <input type="text" name="autid3" id="username" placeholder="Author ID">
     <br><br>
             <label><b>Author 1 Name</b></label>
             <br>
-            <input type="text" name="author1" placeholder="Author Name">
+            <input type="text" name="author1" id="username" placeholder="Author Name">
     <br><br>
             <label><b>Author 2 Name</b></label>
             <br>
-            <input type="text" name="author2" placeholder="Author Name">
+            <input type="text" name="author2" id="username" placeholder="Author Name">
     <br><br>
             <label><b>Author 3 Name</b></label>
             <br>
-            <input type="text" name="author3" placeholder="Author Name">
+            <input type="text" name="author3" id="username" placeholder="Author Name">
     <br><br>
             <label><b>Publication in MLA Format</b></label>
             <br>
-            <input type="text" name="mla" placeholder="MLA Format" rows="9" columns="45">
+            <input type="text" name="mla" id="username" placeholder="MLA Format">
     <br><br>
             <label><b>Publication Title</b></label>
             <br>
-            <input type="text" name="title" placeholder="Title">
+            <input type="text" name="title" id="username" placeholder="Title">
     <br><br>
             <label><b>PDF URL/ LINK</b></label>
             <br>
-            <input type="text" name="pdf" placeholder="PDF">
+            <input type="text" name="pdf" id="username" placeholder="PDF">
             </center>
     <br><br>
-    <center><button type="submit" style="border-radius: 4px;background-color: aqua; color:black;border:none;" >Insert Publication</button></center>
+    <center><button type="submit" style="border-radius: 4px;background-color: aqua; color:black;border:2px solid white;;margin-top: 20px; padding-left: 25px;padding-right: 25px;padding-top: 10px ;padding-bottom: 10px" ><b style="font-weight: 500; font-size: 20px;" >Insert Publication</b></button></center>
 </form>
 </div>
 </div> 
