@@ -1,5 +1,5 @@
 README
-To execute project:
+To execute this project:
 1)Install and Setup MongoDB and NodeJS.
 2)Download the project folder.
 3)Open it in VS Code.
